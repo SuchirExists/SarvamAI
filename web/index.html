@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Lens · A little language goes a long way</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/" aria-label="Local Lens home"><span class="logo">ल</span> Local Lens<span class="dot">.</span></a><span class="header-note">SMALL PHRASES. REAL CONNECTIONS.</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow"><span></span> TWO-MINUTE CONVERSATION REHEARSALS</div><h1>Don’t just find words.<br><em>Find your next reply.</em></h1><p>Practise a real-life moment before you’re in it.<br>Three turns, a little guidance, and something you can actually say.</p></section>
+    <section class="rehearsal" aria-labelledby="rehearsal-title">
+      <div class="book-heading"><h2 id="rehearsal-title">Try a little conversation</h2><span class="sample-badge">HINDI · BUILT-IN LESSONS</span></div>
+      <p class="book-description">Choose a situation. Read their words, say your reply out loud, then choose it below. Go at your own pace.</p>
+      <div class="lesson-picker" role="group" aria-label="Choose a rehearsal">
+        <button type="button" data-lesson="cafe" aria-pressed="true"><b>☕ Less sugar, please</b><span>Order chai just how you like it</span></button>
+        <button type="button" data-lesson="directions" aria-pressed="false"><b>↗ Find the metro</b><span>Ask, clarify, and find your way</span></button>
+        <button type="button" data-lesson="shopping" aria-pressed="false"><b>▧ At the market</b><span>Ask the price and make a purchase</span></button>
+      </div>
+      <div class="lesson-stage" id="lesson-stage">
+        <div class="lesson-meta"><span id="lesson-progress">TURN 1 OF 3</span><button type="button" class="text-button" id="restart-lesson">Start over</button></div>
+        <p id="lesson-goal" class="lesson-goal"></p>
+        <div class="speaker-bubble"><span class="mini-label" id="lesson-speaker"></span><h3 lang="hi" id="lesson-line" tabindex="-1"></h3><p class="pronunciation" id="lesson-sound"></p><button type="button" class="text-button" id="lesson-hint" aria-expanded="false" aria-controls="lesson-meaning">Show English hint</button><p id="lesson-meaning" hidden></p></div>
+        <p id="reply-label" class="mini-label">WHAT WOULD YOU SAY?</p><div id="lesson-choices" aria-labelledby="reply-label"></div>
+        <p id="lesson-feedback" role="status" aria-live="polite"></p>
+        <button type="button" class="primary" id="lesson-next" hidden>Continue conversation →</button>
+      </div>
+      <div id="lesson-complete" class="lesson-complete" hidden>
+        <span class="mini-label">YOU MADE IT THROUGH THE CONVERSATION</span><h3 tabindex="-1" id="lesson-complete-title">Ready for the real moment.</h3><p id="lesson-summary"></p><div id="lesson-recap"></div>
+        <div class="lesson-end-actions"><button class="primary" type="button" id="save-lesson">Save these replies ♡</button><button class="secondary" type="button" id="replay-lesson">Rehearse again</button></div><p id="lesson-save-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="practice-note">Text-based rehearsal · no microphone or API credits needed. Pronunciations are approximate.</p>
+    </section>
+    <details class="phrase-tools"><summary>Need a specific phrase? Open the phrase coach <span>＋</span></summary>
+    <div class="workspace">
+      <section class="controls" aria-label="Build a phrase">
+        <div class="section-title"><span class="number">01</span><h2>Set the scene</h2></div>
+        <form id="phrase-form">
+          <label for="language">I want to speak</label><select id="language"><option>Hindi</option><option>Tamil</option><option>Bengali</option></select>
+          <fieldset><legend>What’s the moment?</legend><div class="situations">
+            <label class="choice"><input type="radio" name="situation" value="cafe" checked><span><b>☕</b> At a café</span></label>
+            <label class="choice"><input type="radio" name="situation" value="directions"><span><b>↗</b> Finding my way</span></label>
+            <label class="choice"><input type="radio" name="situation" value="shopping"><span><b>▧</b> At the market</span></label>
+          </div></fieldset>
+          <label for="context">Make it yours <span class="optional">optional · live mode</span></label><textarea id="context" maxlength="300" rows="2" placeholder="e.g. Ask for a chai with less sugar" disabled></textarea>
+          <div class="mode-row"><label for="live">Use live Sarvam <small id="mode-help">Off · explore built-in sample phrases</small></label><input type="checkbox" id="live" role="switch" aria-describedby="mode-help"></div>
+          <button class="primary" id="generate" type="submit">Find my words <span>↗</span></button>
+          <p id="status" role="status" aria-live="polite">Sample mode is free to explore. Live mode needs Sarvam credits.</p>
+        </form>
+      </section>
+      <section class="result" aria-label="Your phrase">
+        <div class="card-top"><span id="card-label">HINDI / AT A CAFÉ</span><span class="sample-badge" id="source">SAMPLE PHRASE</span></div>
+        <div class="phrase-body"><span class="mini-label">A GOOD PLACE TO START</span><h2 id="phrase" lang="hi">एक चाय दीजिए, कृपया।</h2><p id="pronunciation" class="pronunciation">Ek chai deejiye, kripya.</p><div class="translation"><span class="mini-label">IN OTHER WORDS</span><p id="meaning">One tea, please.</p></div></div>
+        <div class="tip"><span class="tip-icon">✳</span><div><strong>A little local know-how</strong><p id="tip">“Deejiye” is a polite way to ask for something.</p></div></div>
+        <div class="card-bottom"><span>Keep this one in your pocket.</span><div class="card-actions"><button id="save" type="button">Save phrase ♡</button><button id="copy" type="button">Copy phrase <span>⧉</span></button></div></div>
+      </section>
+    </div>
+    </details>
+    <section class="phrasebook" aria-labelledby="book-title">
+      <div class="book-heading"><div class="section-title"><span class="number">02</span><h2 id="book-title">Your pocket phrasebook <span id="saved-count">0</span></h2></div><button class="secondary" id="practice" type="button" disabled>Practise recall ↗</button></div>
+      <p class="book-description">Keep the words you’ll want again. Saved in this browser, on this device.</p>
+      <p id="book-status" role="status" aria-live="polite"></p>
+      <div id="saved-list" class="saved-list"></div>
+    </section>
+    <dialog id="practice-dialog" aria-labelledby="practice-title">
+      <div class="practice-top"><span class="mini-label" id="practice-progress"></span><button type="button" id="close-practice" aria-label="Close practice">✕</button></div>
+      <h2 id="practice-title">What does this mean?</h2><span id="practice-language" class="sample-badge"></span>
+      <p id="practice-phrase" class="practice-phrase"></p>
+      <div id="practice-answer" hidden><p id="practice-pronunciation" class="pronunciation"></p><p id="practice-meaning"></p></div>
+      <button type="button" id="reveal" class="primary" aria-expanded="false" aria-controls="practice-answer">Reveal meaning</button>
+      <button type="button" id="next-practice" class="primary" hidden>Next phrase →</button>
+      <p class="practice-note">Say it out loud, then check your meaning. No API calls needed.</p>
+    </dialog>
+    <footer><span>Made for the moments between destinations.</span><span>Built with Sarvam AI <span class="footer-star">✳</span></span></footer>
+  </main>
+</body>
+</html>
